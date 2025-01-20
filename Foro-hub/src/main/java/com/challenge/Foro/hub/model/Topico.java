@@ -1,42 +1,68 @@
 package com.challenge.Foro.hub.model;
 
+import com.challenge.Foro.hub.DTO.DatosActualizarTopico;
 import com.challenge.Foro.hub.DTO.DatosTopico;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "topico")
 @EqualsAndHashCode(of = "id")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Topico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private Long id;
 
-    String titulo;
-    String mensaje;
-    String fechaDeCreacion;
+    @NotNull
+    private String titulo;
+    @NotNull
+    private String mensaje;
+    @NotNull
+    private String fechaDeCreacion;
     int status;
-    String autor;
-    String curso;
+    @NotNull
+    private String autor;
+    @NotNull
+    private String curso;
 
     public Topico(DatosTopico datosTopico){
         this.titulo = datosTopico.titulo();
         this.mensaje = datosTopico.mensaje();
         this.fechaDeCreacion = fechaFormateada();
-        this.status = 1; //se utilizaran 1 para true y 0 para false
+        this.status = 1; //se utilizamos 1 para true y 0 para false
         this.autor = datosTopico.autor();
-        this.curso = datosTopico.autor();
+        this.curso = datosTopico.curso();
 
+    }
+    public Topico actualizarTopicos(DatosActualizarTopico datosActualizarTopico){
+
+        if(datosActualizarTopico.titulo() !=null){
+            this.titulo = datosActualizarTopico.titulo();
+        }
+        if(datosActualizarTopico.mensaje() !=null){
+            this.mensaje = datosActualizarTopico.mensaje();
+        }
+
+        if(datosActualizarTopico.autor() !=null){
+            this.autor = datosActualizarTopico.autor();
+        }
+        if(datosActualizarTopico.curso() !=null){
+            this.curso = datosActualizarTopico.curso();
+
+        }
+        return this;
     }
 
     //metodo para formatear fecha
@@ -46,7 +72,6 @@ public class Topico {
         String fechaFormateada = fechaActual.format(formato);
         return  fechaFormateada;
     }
-
 
 
 }
