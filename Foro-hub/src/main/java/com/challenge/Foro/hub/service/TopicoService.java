@@ -65,4 +65,19 @@ public class TopicoService {
             System.out.println("No se encontro el Id, verifique Id ingresado");
         }
     }
+    //eliminar por Id
+    public void eliminarTopico(Long id) {
+        //traemos consulta
+        Optional<Topico> topicoOptional = topicoRepository.findById(id);
+        if(topicoOptional.isPresent()){
+            //eliminamos topico
+            topicoRepository.deleteById(id);
+        }else {
+            System.out.println("No se encontro el Id, verifique Id ingresado");
+        }
+    }
+
+
+
+
 }
