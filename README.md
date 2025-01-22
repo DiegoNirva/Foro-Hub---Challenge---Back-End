@@ -10,7 +10,7 @@
 implementando por el momento la entidad Topico que tiene titulo, mensaje, fecha de creacion, status, autor y curso. Para la creacion de un topico a travez de la Api.
 Tambien se genero la entidad Usuario con login, clave, email, para la implementacion de seguridad en el contexto de la API</p>
 <p>Enpoint Generados</p>
-<img src="https://ibb.co/Km6pbm0" alt="Endpoint">
+<img src="https://i.ibb.co/R72kY7v/endpoint-Foro-Hub.jpg" alt="endpoint-Foro-Hub" border="0">
 
 <h2>Tecnologias utilizadas</h2>
 <ul>
