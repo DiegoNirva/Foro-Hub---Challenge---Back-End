@@ -1,11 +1,13 @@
 package com.challenge.Foro.hub.DTO;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record DatosUsuarios(
-        @NotNull
-        String login,
-        @NotNull
-        String clave) {
+        @NotBlank
+        @JsonAlias("USERNAME") String login,
+        @NotBlank
+        @JsonAlias("PASSWORD")String clave) {
 
 }
