@@ -23,5 +23,7 @@ Tambien se genero la entidad Usuario con login, clave, email, para la implementa
   <li>spring security</li> 
   <li>jwt</li> 
   <li>Apache Maven</li> 
+  <li>Insomnia (prueba de endpoint)</li> 
+  
 </ul>
 
