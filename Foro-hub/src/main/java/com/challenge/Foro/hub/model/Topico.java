@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Set;
 
 @Data
 @Entity
@@ -33,9 +34,11 @@ public class Topico {
     private String fechaDeCreacion;
     int status;
     @NotNull
-    private String autor;
+    private Usuario autor;
     @NotNull
     private String curso;
+
+    Set<Respuesta> respuestas;
 
     public Topico(DatosTopico datosTopico){
         this.titulo = datosTopico.titulo();
