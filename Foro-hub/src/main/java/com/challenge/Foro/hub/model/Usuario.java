@@ -3,6 +3,7 @@ package com.challenge.Foro.hub.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -29,12 +30,16 @@ public class Usuario implements UserDetails {
 
     String login;
 
+    @NotNull
     @Email
     String email;
 
+    @NotNull
     String clave;
 
-    Set<Perfil> perfiles;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Rol roles;
 
 
     @Override

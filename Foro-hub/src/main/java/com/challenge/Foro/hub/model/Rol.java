@@ -1,8 +1,8 @@
 package com.challenge.Foro.hub.model;
 
-public enum Perfil {
+public enum Rol {
 
     ADMIN,
-    ALUMNO
+    USER
 
 }

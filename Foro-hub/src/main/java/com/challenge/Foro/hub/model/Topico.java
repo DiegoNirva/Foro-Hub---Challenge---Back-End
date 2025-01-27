@@ -35,9 +35,13 @@ public class Topico {
     int status;
     @NotNull
     private Usuario autor;
-    @NotNull
-    private String curso;
 
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "curso_id", nullable = false)
+    private Curso curso;
+
+    @OneToMany(mappedBy = "respuesta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     Set<Respuesta> respuestas;
 
     public Topico(DatosTopico datosTopico){
