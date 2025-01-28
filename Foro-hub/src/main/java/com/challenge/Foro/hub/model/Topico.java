@@ -49,9 +49,6 @@ public class Topico {
         this.mensaje = datosTopico.mensaje();
         this.fechaDeCreacion = fechaFormateada();
         this.status = 1; //se utilizamos 1 para true y 0 para false
-        this.autor = datosTopico.autor();
-        this.curso = datosTopico.curso();
-
     }
     public Topico actualizarTopicos(DatosActualizarTopico datosActualizarTopico){
 
@@ -60,14 +57,6 @@ public class Topico {
         }
         if(datosActualizarTopico.mensaje() !=null){
             this.mensaje = datosActualizarTopico.mensaje();
-        }
-
-        if(datosActualizarTopico.autor() !=null){
-            this.autor = datosActualizarTopico.autor();
-        }
-        if(datosActualizarTopico.curso() !=null){
-            this.curso = datosActualizarTopico.curso();
-
         }
         return this;
     }

@@ -2,7 +2,7 @@ package com.challenge.Foro.hub.service;
 
 import com.challenge.Foro.hub.DTO.DatosActualizarTopico;
 import com.challenge.Foro.hub.DTO.DatosTopico;
-import com.challenge.Foro.hub.DTO.MostraTopicopPorId;
+import com.challenge.Foro.hub.DTO.MostraDatosTopico;
 import com.challenge.Foro.hub.model.Topico;
 import com.challenge.Foro.hub.repository.TopicoRepository;
 import jakarta.transaction.Transactional;
@@ -38,15 +38,15 @@ public class TopicoService {
     }
 
     //busqueda por id
-    public MostraTopicopPorId mostraTopicopPorId(Long id) {
+    public MostraDatosTopico mostraTopicopPorId(Long id) {
 
-        MostraTopicopPorId datosTopicopPorId;
+        MostraDatosTopico datosTopicopPorId;
 
         Optional<Topico> topico = topicoRepository.findById(id);
 
         //creamos una try para errores
         try{
-            datosTopicopPorId = new MostraTopicopPorId(topico.orElse(null));
+            datosTopicopPorId = new MostraDatosTopico(topico.orElse(null));
         } catch (Exception e) {
             throw new RuntimeException("No se encontro el Id, verifique Id ingresado");
         }

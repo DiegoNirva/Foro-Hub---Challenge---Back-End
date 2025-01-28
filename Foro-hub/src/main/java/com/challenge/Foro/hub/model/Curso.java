@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Data
 @Entity
@@ -35,7 +36,11 @@ public class Curso {
     public Curso(DatosCurso datosCurso){
         this.nombre = datosCurso.nombre();
         this.categoria = datosCurso.categoria();
-        this.topico = datosCurso.topicos() != null ? datosCurso.topicos() : new HashSet<Topico>();
+        if( datosCurso.topicos() != null){
+            this.topico = datosCurso.topicos().stream().map(datosTopico -> new Topico()).collect(Collectors.toSet());
+        }else {
+            this.topico = new HashSet<>();
+        }
     }
 
 

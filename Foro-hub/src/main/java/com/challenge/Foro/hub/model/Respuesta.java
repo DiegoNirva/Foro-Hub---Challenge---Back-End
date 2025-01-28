@@ -1,5 +1,6 @@
 package com.challenge.Foro.hub.model;
 
+import com.challenge.Foro.hub.DTO.DatosRespuesta;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -35,6 +36,9 @@ public class Respuesta {
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario autor;
 
+    public Respuesta(DatosRespuesta datosRespuesta){
+        this.mensaje = datosRespuesta.mensaje();
 
+    }
 
 }

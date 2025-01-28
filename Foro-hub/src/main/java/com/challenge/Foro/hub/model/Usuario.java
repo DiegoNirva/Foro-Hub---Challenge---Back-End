@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -39,7 +38,7 @@ public class Usuario implements UserDetails {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    private Rol roles;
+    Rol rol;
 
 
     @Override

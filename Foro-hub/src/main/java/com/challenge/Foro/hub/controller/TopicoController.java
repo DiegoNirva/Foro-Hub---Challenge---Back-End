@@ -3,7 +3,7 @@ package com.challenge.Foro.hub.controller;
 import com.challenge.Foro.hub.DTO.DatosActualizarTopico;
 import com.challenge.Foro.hub.DTO.DatosListadoTopicos;
 import com.challenge.Foro.hub.DTO.DatosTopico;
-import com.challenge.Foro.hub.DTO.MostraTopicopPorId;
+import com.challenge.Foro.hub.DTO.MostraDatosTopico;
 import com.challenge.Foro.hub.model.Topico;
 import com.challenge.Foro.hub.service.TopicoService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -50,7 +50,7 @@ public class TopicoController {
 
     //buscar topicos por id
     @GetMapping("/listado/{id}.")
-    public ResponseEntity<MostraTopicopPorId> buscarPorId(@PathVariable Long id){
+    public ResponseEntity<MostraDatosTopico> buscarPorId(@PathVariable Long id){
             return ResponseEntity.ok(topicoService.mostraTopicopPorId(id));
     }
 
