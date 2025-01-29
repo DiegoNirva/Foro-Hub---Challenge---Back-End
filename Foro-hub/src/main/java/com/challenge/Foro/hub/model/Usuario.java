@@ -19,22 +19,23 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuario")
 @EqualsAndHashCode(of = "id")
 public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String login;
+    @NotNull
+    private String login;
 
     @NotNull
     @Email
-    String email;
+    private String email;
 
     @NotNull
-    String clave;
+    private String clave;
 
     @NotNull
     @Enumerated(EnumType.STRING)

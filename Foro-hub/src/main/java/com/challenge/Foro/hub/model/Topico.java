@@ -32,16 +32,20 @@ public class Topico {
     private String mensaje;
     @NotNull
     private String fechaDeCreacion;
+
     int status;
+
     @NotNull
-    private Usuario autor;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
 
     @NotNull
     @ManyToOne
     @JoinColumn(name = "curso_id", nullable = false)
     private Curso curso;
 
-    @OneToMany(mappedBy = "respuesta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     Set<Respuesta> respuestas;
 
     public Topico(DatosTopico datosTopico){

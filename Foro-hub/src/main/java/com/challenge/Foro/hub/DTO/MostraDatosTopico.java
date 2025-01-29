@@ -21,8 +21,8 @@ public record MostraDatosTopico(
                 topico.getMensaje(),
                 topico.getFechaDeCreacion(),
                 topico.getStatus(),
-                topico.getAutor(),
-                topico.getCurso(),
+                topico.getAutor().getLogin(),
+                topico.getCurso().getNombre(),
                 topico.getRespuestas());
     }
 }

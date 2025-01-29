@@ -1,7 +1,7 @@
 package com.challenge.Foro.hub.controller;
 
 import com.challenge.Foro.hub.DTO.DatosJwtToken;
-import com.challenge.Foro.hub.DTO.DatosUsuarios;
+import com.challenge.Foro.hub.DTO.DatosUsuario;
 import com.challenge.Foro.hub.util.JwtUtils;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class AutenticacionController {
     JwtUtils jwtUtils;
 
     @PostMapping
-    public ResponseEntity autenticacionUsuario(@RequestBody @Valid DatosUsuarios datosUsuarios){
+    public ResponseEntity autenticacionUsuario(@RequestBody @Valid DatosUsuario datosUsuarios){
         Authentication token = new UsernamePasswordAuthenticationToken(datosUsuarios.login(), datosUsuarios.clave());
         authenticationManager.authenticate(token);
         var JWTtoken = jwtUtils.createToken(token);

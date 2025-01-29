@@ -18,7 +18,7 @@ public class Respuesta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotNull
     private String mensaje;
@@ -34,7 +34,7 @@ public class Respuesta {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
-    private Usuario autor;
+    private Usuario usuario;
 
     public Respuesta(DatosRespuesta datosRespuesta){
         this.mensaje = datosRespuesta.mensaje();
