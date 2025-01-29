@@ -2,9 +2,9 @@ create table respuesta(
 
     id bigint not null auto_increment,
     mensaje varchar(250) not null unique,
-    topico bigint not null,
+    topico_id bigint not null,
     fechaDeCreacion varchar(30) not null,
-    autor bigint not null,
+    usuario_id bigint not null,
 
 
     primary key(id),

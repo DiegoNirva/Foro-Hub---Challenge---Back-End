@@ -3,7 +3,7 @@ create table curso(
     id bigint not null auto_increment,
     nombre varchar(50) not null,
     categoria varchar(25) not null,
-    topico varchar(30),
+    topico_id varchar(30),
 
 
     primary key(id),
