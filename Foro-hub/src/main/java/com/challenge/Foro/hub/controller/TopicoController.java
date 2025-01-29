@@ -28,14 +28,14 @@ public class TopicoController {
     //crea un topico
     @PostMapping
     public ResponseEntity<String> SaveTopico(@RequestBody @Valid DatosTopico datosTopico){
-    topicoService.saveTopico(datosTopico);
+    topicoService.guardarTopico(datosTopico);
         return ResponseEntity.ok("Topico guardado");
     }
 
     //trae todos los topicos
     @GetMapping("/listado.")
     ResponseEntity<PagedModel> listadoTopicos(Pageable pageable, PagedResourcesAssembler assembler){
-        Page<Topico>topicos = topicoService.findAll(pageable);
+        Page<Topico>topicos = topicoService.buscarTopicos(pageable);
         Page<DatosListadoTopicos>datosListadoTopicos = topicos.map(DatosListadoTopicos::new);
         return ResponseEntity.ok(assembler.toModel(datosListadoTopicos));
     }
@@ -51,7 +51,7 @@ public class TopicoController {
     //buscar topicos por id
     @GetMapping("/listado/{id}.")
     public ResponseEntity<MostraDatosTopico> buscarPorId(@PathVariable Long id){
-            return ResponseEntity.ok(topicoService.mostraTopicopPorId(id));
+            return ResponseEntity.ok(topicoService.buscarTopicopPorId(id));
     }
 
     //actualizar topicos

@@ -22,12 +22,12 @@ public class TopicoService {
 
     //metodo para guardar topicos
     @Transactional
-    public void saveTopico(DatosTopico datosTopicos){
+    public void guardarTopico(DatosTopico datosTopicos){
         topicoRepository.save(new Topico(datosTopicos));
     }
 
     //metodo para buscar topicos de tipo page
-    public Page<Topico> findAll(Pageable pageable){
+    public Page<Topico> buscarTopicos(Pageable pageable){
         Page<Topico>topicoPage = topicoRepository.findAll(pageable);
         return topicoPage;
     }
@@ -38,7 +38,7 @@ public class TopicoService {
     }
 
     //busqueda por id
-    public MostraDatosTopico mostraTopicopPorId(Long id) {
+    public MostraDatosTopico buscarTopicopPorId(Long id) {
 
         MostraDatosTopico datosTopicopPorId;
 
@@ -65,6 +65,7 @@ public class TopicoService {
             System.out.println("No se encontro el Id, verifique Id ingresado");
         }
     }
+
     //eliminar por Id
     public void eliminarTopico(Long id) {
         //traemos consulta
