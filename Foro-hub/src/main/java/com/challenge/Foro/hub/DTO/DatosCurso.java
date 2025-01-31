@@ -13,4 +13,5 @@ public record DatosCurso(
 
         Set<DatosTopico> topicos
 ) {
+
 }
