@@ -34,7 +34,7 @@ public class TopicoController {
 
     //trae todos los topicos
     @GetMapping("/listado.")
-    ResponseEntity<PagedModel> listadoTopicos(Pageable pageable, PagedResourcesAssembler assembler){
+    public ResponseEntity<PagedModel> listadoTopicos(Pageable pageable, PagedResourcesAssembler assembler){
         Page<Topico>topicos = topicoService.buscarTopicos(pageable);
         Page<DatosListadoTopicos>datosListadoTopicos = topicos.map(DatosListadoTopicos::new);
         return ResponseEntity.ok(assembler.toModel(datosListadoTopicos));
@@ -42,7 +42,7 @@ public class TopicoController {
 
     //busca topicos por curso y anio
     @GetMapping("/listado/{curso}/{anio}.")
-    ResponseEntity<PagedModel> busquedaTopicoPorCursoAnio(Pageable pageable, PagedResourcesAssembler assembler, @PathVariable String curso, @PathVariable String anio){
+    public ResponseEntity<PagedModel> busquedaTopicoPorCursoAnio(Pageable pageable, PagedResourcesAssembler assembler, @PathVariable String curso, @PathVariable String anio){
         Page<Topico>topicos = topicoService.findByCursoAndFechaDeCreacion(pageable, curso, anio);
         Page<DatosListadoTopicos>datosListadoTopicos = topicos.map(DatosListadoTopicos::new);
         return ResponseEntity.ok(assembler.toModel(datosListadoTopicos));
