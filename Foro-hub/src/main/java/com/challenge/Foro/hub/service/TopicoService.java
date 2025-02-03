@@ -42,14 +42,10 @@ public class TopicoService {
 
         MostraDatosTopico datosTopicopPorId;
 
-        Optional<Topico> topico = topicoRepository.findById(id);
+        Topico topico = topicoRepository.findById(id).orElseThrow(()->new RuntimeException("No se encontro el Id, verifique Id ingresado"));
 
-        //creamos una try para errores
-        try{
-            datosTopicopPorId = new MostraDatosTopico(topico.orElse(null));
-        } catch (Exception e) {
-            throw new RuntimeException("No se encontro el Id, verifique Id ingresado");
-        }
+        datosTopicopPorId = new MostraDatosTopico(topico);
+
         return datosTopicopPorId;
     }
 
