@@ -22,7 +22,7 @@ public class CursoController {
     CursoService cursoService;
 
     @PostMapping("/guardar")
-    public ResponseEntity guardarCurso(@RequestBody @Valid DatosCurso datosCurso){
+    public ResponseEntity guardarCurso(@Valid @RequestBody DatosCurso datosCurso){
             cursoService.guardarCurso(datosCurso);
             return ResponseEntity.ok("Curso guardado");
     }

@@ -1,6 +1,7 @@
 package com.challenge.Foro.hub.controller;
 
 import com.challenge.Foro.hub.DTO.DatosJwtToken;
+import com.challenge.Foro.hub.DTO.DatosRegistroUsuario;
 import com.challenge.Foro.hub.DTO.DatosUsuario;
 import com.challenge.Foro.hub.util.JwtUtils;
 import jakarta.validation.Valid;

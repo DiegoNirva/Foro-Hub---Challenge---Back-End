@@ -8,7 +8,7 @@ public record DatosTopico(
         @NotNull(message = "El mensaje no puede estar vacio")
         String mensaje,
         @NotNull(message = "El autor no puede estar vacio")
-        MostrarDatosUsuario autor,
+        MostrarDatosUsuario usuario,
         @NotNull(message = "El curso no puede estar vacio")
         MostrarDatosCurso curso) {
 
